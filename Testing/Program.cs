@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddScoped<IDbConnection>((s) =>
+builder.Services.AddScoped(s =>
 {
     IDbConnection conn = new MySqlConnection(builder.Configuration.GetConnectionString("bestbuy"));
     conn.Open();
@@ -40,7 +40,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    "default",
+    "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Testing.Models;
 
 namespace Testing.Controllers;
@@ -13,5 +12,4 @@ public interface IProductRepository
     public IEnumerable<Category> GetCategories();
     public Product AssignCategory();
     public void DeleteProduct(Product product);
-    
 }
